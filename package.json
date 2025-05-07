@@ -1,0 +1,29 @@
+{
+  "name": "hono-pug-renderer",
+  "version": "1.0.0",
+  "description": "Pug renderer middleware for Hono framework",
+  "keywords": ["hono", "pug", "renderer", "middleware", "view", "bun"],
+  "author": "LucasVbr <contact@lucasvbr.dev>",
+  "scripts": {
+    "build": "bun build src/index.ts --outdir dist && tsc"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/pug": "^2.0.10"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "hono": "^4.7.8",
+    "pug": "^3.0.3"
+  }
+}
