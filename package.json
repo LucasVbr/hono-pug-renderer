@@ -1,43 +1,48 @@
 {
   "name": "hono-pug-renderer",
-  "module": "src/index.ts",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "type": "module",
   "version": "0.0.2",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "description": "Pug renderer middleware for Hono",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
   "scripts": {
-    "build": "bun build --target=node ./src/index.ts --outfile=./dist/index.js && bun run build:declaration",
-    "build:declaration": "tsc --emitDeclarationOnly --project tsconfig.types.json",
-    "postbuild": "rimraf tsconfig.types.tsbuildinfo"
+    "build": "bun run build.ts",
+    "prepublishOnly": "bun run build"
   },
-  "devDependencies": {
-    "@types/bun": "latest",
-    "@types/pug": "^2.0.10",
-    "prettier": "^3.5.3",
-    "rimraf": "^6.0.1"
-  },
-  "peerDependencies": {
-    "typescript": "^5.8.3"
-  },
-  "dependencies": {
-    "hono": "^4.7.8",
-    "pug": "^3.0.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/LucasVbr/hono-pug-renderer.git"
-  },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "hono",
     "pug",
     "renderer",
     "middleware"
   ],
-  "author": "LucasVbr",
   "license": "MIT",
-  "files": [
-    "dist/*.js",
-    "dist/*.d.ts"
-  ]
+  "homepage": "https://github.com/LucasVbr/hono-pug-renderer#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucasVbr/hono-pug-renderer.git"
+  },
+  "bugs": "https://github.com/LucasVbr/hono-pug-renderer/issues",
+  "author": "Lucàs Vabre <contact@lucasvbr.dev>",
+  "dependencies": {
+    "hono": "^4.7.8",
+    "pug": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/pug": "^2.0.10",
+    "prettier": "^3.5.3",
+    "bun-plugin-dts": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.3"
+  }
 }
