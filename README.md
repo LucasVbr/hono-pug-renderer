@@ -46,7 +46,7 @@ const app = new Hono();
 app.use('*', pugRenderer(path.join(__dirname, 'views')));
 
 app.get('/', (c) => {
-  return c.pug('index');
+  return c.render('index');
 });
 
 export default app;
@@ -58,7 +58,7 @@ You can pass options to the `pugRenderer` function to customize its behavior.
 
 ```javascript
 app.get('/', (c) => {
-  return c.pug('index', {
+  return c.render('index', {
     title: 'My Page',
     message: 'Hello, world!'
   });
