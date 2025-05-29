@@ -28,5 +28,8 @@ jobs:
       - name: Set up npm auth
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
+      - name: Debug .npmrc content
+        run: cat ~/.npmrc
+
       - name: Publish to npm
         run: bun publish --access public
